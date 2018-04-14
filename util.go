@@ -60,7 +60,12 @@ func (sw *Sweeper) Next() (image RawImage, label Label, present bool) {
 	if sw.i >= len(sw.set.Images) {
 		return nil, 0, false
 	}
-	return sw.set.Images[sw.i], sw.set.Labels[sw.i], true
+	
+	image = sw.set.Images[sw.i]
+	label = sw.set.Labels[sw.i]
+	present = true
+	sw.i++
+	return
 }
 
 // Sweep creates a new sweep iterator over the data set
